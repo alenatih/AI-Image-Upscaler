@@ -4,30 +4,16 @@ import ReactDOM from "react-dom/client"
 import App from "./App.jsx"
 import "./index.css"
 
-function Main() {
-      return (
-        // <>
-        //   <Helmet>
-        //     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        //   </Helmet>
-          <div className="app">
-            <App />
-          </div>
-        // </>
-      )
-    }
-
-// const Main = React.memo(() => (
-//   <div className="app">
-//     <App />
-//   </div>
-// ))
-
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <Main />
-  </React.StrictMode>,
-)
+const rootElement = document.getElementById("root")
+if (rootElement) {
+  ReactDOM.createRoot(rootElement).render(
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>,
+  )
+} else {
+  console.error("Element with ID 'root' not found")
+}
 
 // const root = ReactDOM.createRoot(document.getElementById("root"))
-// root.render(<Main />)
+// root.render(<App />)
