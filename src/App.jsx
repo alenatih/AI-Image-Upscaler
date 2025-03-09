@@ -51,7 +51,6 @@ const localUpscaler = new Upscaler({
 
 // Loader for uploading an image, and progress bar — for upscaling it
 
-
 function App() {
   const [src, setSrc] = useState()
   const [originalSize, setOriginalSize] = useState()
