@@ -632,7 +632,7 @@ button {
   }
 
   .how-it-works {
-    max-width: 1200px;
+    /* max-width: 1200px; */
     padding: 2.5rem 2.5rem 10rem; /* 40px (4.7rem - 75.2px) 196.8px 160px*/
   }
 
