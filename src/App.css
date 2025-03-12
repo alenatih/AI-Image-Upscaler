@@ -111,8 +111,8 @@ body {
 }
 
 .header-container {
-  /* padding: 3rem 4rem 0; */
   height: 100%;
+  /* padding: 3rem 4rem 0; */
   margin-top: 2rem;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
@@ -167,18 +167,6 @@ body {
   margin: 1.25rem 0 0 0;
 }
 
-/* .mobile-menu-opened {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  margin: 2rem 0 0 0;
-}
-
-.mobile-menu-opened a {
-  margin-bottom: 0.5rem;
-} */
-
 .mobile-menu-opened {
   display: flex;
   flex-direction: column;
@@ -203,11 +191,30 @@ body {
   transform: translateX(0);
 }
 
+.header-navbar-links a,
+.mobile-menu-opened a {
+  color: inherit;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.header-navbar-links a:hover,
+.mobile-menu-opened a:hover {
+  color: #3498db;
+}
+
+.header-navbar-links a:active,
+.mobile-menu-opened a:active {
+  color: #2980b9;
+}
+
 .buttons-section {
   display: flex;
   flex-direction: column;
   /* padding: 2rem 0 5.4rem; */ /* 32px 0 86.4px */
-  margin-top: 2.5rem;
+  margin-top: 3rem;
   border-top: 1px solid #C1C7D7;
 }
 
@@ -1199,7 +1206,7 @@ button {
   }
 
   .how-it-works-list {
-    margin: 1.5rem 178px 2.5rem 0;
+    margin: 0 178px 2.5rem 0;
   }
 
   /* Layout */
@@ -1214,12 +1221,17 @@ button {
     padding: 3rem 4rem 0;
   }
 
+  .logo-container,
+  .navbar {
+    margin-bottom: 2.5rem;
+  }
+
   .mobile-menu-opened {
     display: none;
   }
 
   .main-container {
-    padding: 5rem 7.8rem 0; /* 80px 124.8px 0 */
+    padding: 3rem 7.8rem 0; /* 48px 124.8px 0 */
   }
 
   .main-right {
@@ -1242,7 +1254,8 @@ button {
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
-    padding: 2rem 0 5.4rem; /* 32px 0 86.4px */
+    padding: 4.5rem 0 5.4rem; /* 40px 0 86.4px */
+    margin-top: 4.5rem;
   }
 
   .delete-download-buttons-container,

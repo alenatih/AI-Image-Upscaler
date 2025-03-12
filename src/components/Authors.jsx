@@ -7,7 +7,7 @@ function Authors() {
     return (
         <>
             <div className="authors-left">
-              <h1 className="authors-title">Authors</h1>
+              <h2 className="authors-title">Authors</h2>
               <p>Great things are built in collaboration. And this is just the beginning! 
                 More awesome features and projects to come!</p>
             </div>
@@ -43,7 +43,7 @@ function Authors() {
                   <img className="github-logo" src={GitHubLogo}></img>
                   <p className="upscaler-description"><span className="bold">UpscalerJS</span> — the library is on
                   <a href="https://github.com/thekevinscott/UpscalerJS" target="_blank"> GitHub</a>, 
-                  and you can visit the <a href="https://upscalerjs.com/" target="_blank">official website</a> with documentation</p>
+                  and you can visit the <a href="https://upscalerjs.com/" target="_blank">official website</a> with documentation.</p>
                 </div>
               </div>
 

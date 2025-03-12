@@ -107,8 +107,7 @@ body {
 .footer-navbar h3,
 .footer-navbar a,
 .contact-container a,
-.upscaler-link-container a,
-.mobile-menu-opened a {
+.upscaler-link-container a {
   color: inherit;
   /* font-size: 0.875rem; */ /* 14px */
   font-size: 1rem;
@@ -263,6 +262,10 @@ body {
 /* .how-it-works {
   padding: 2.5rem 12.3rem 10rem; /* 40px (4.7rem - 75.2px) 196.8px 160px*/
 /* } */
+
+.how-it-works-list {
+  padding: 1rem;
+}
 
 .authors {
   background-color: #C1C7D7;
@@ -433,7 +436,7 @@ button {
   }
 
   .main-container {
-    padding-top: 2rem;
+    padding: 2rem;
   }
 
   .how-it-works,
@@ -580,7 +583,7 @@ button {
   }
 
   .how-it-works-list {
-    margin: 1.5rem 178px 2.5rem 0;
+    margin: 0 178px 2.5rem 0;
   }
 
   /* Layout */
@@ -596,7 +599,7 @@ button {
   }
 
   .main-container {
-    padding: 5rem 7.8rem 0; /* 80px 124.8px 0 */
+    padding: 3rem 7.8rem 0; /* 48px 124.8px 0 */
   }
 
   .main-right {
@@ -611,9 +614,10 @@ button {
     margin: 0.5rem 0 3rem;
   }
 
-  .buttons-section {
-    padding: 2rem 0 5.4rem; /* 32px 0 86.4px */
-  }
+  /* .buttons-section {
+    padding: 2rem 0 5.4rem;  */
+    /* 32px 0 86.4px */
+  /* } */
 
   .scaling-slider {
     margin-top: 0;

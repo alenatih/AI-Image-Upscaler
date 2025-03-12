@@ -79,7 +79,7 @@ function Header() {
                 className={`mobile-menu-opened ${isDropdownOpen ? "slide-in" : ""}`}
                 ref={menuRef}>
                 <a href="#main">Upscaler</a>
-                <a href="#how-it-works">How It Works</a>
+                <a href="#how-it-works">How it works</a>
                 <a href="#authors">Authors</a>
               </div>
             )}
@@ -87,7 +87,7 @@ function Header() {
         ) : (
           <div className="header-navbar-links">
             <a href="#main">Upscaler</a>
-            <a href="#how-it-works">How It Works</a>
+            <a href="#how-it-works">How it works</a>
             <a href="#authors">Authors</a>
           </div>
         )}

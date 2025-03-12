@@ -733,11 +733,9 @@ const downloadCallback = () => {
 
           </main>
 
-          
-
           <section className="how-it-works" id="how-it-works">
             <div className="how-it-works-left">
-              <h1 className="how-it-works-title">How It Works</h1>
+              <h2 className="how-it-works-title">How it works</h2>
               {/* <p>Image Upscaler is an online service that zooms images and photos from 2 to 6 times. 
                 It uses artificial intelligence that enlarges images without loss of quality, 
                 making them clearer.</p> */}
