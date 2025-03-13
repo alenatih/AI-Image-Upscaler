@@ -198,7 +198,7 @@ useEffect(() => {
       } catch (error) {
         if (!isCurrent) return // Check if this effect is still the current one
         console.error('Error upscaling image:', error)
-        alert('Error upscaling image:', error)
+        alert('Error upscaling image:')
 
         try {
           const upscaledSrc = await localUpscaler.upscale(img, {
@@ -217,7 +217,7 @@ useEffect(() => {
         } catch (localError) {
           if (!isCurrent) return // Check if this effect is still the current one
           console.error('Error upscaling image with local model:', localError)
-          alert('Error upscaling image with local model:', localError)
+          alert('Error upscaling image with local model:')
         }
 
       } finally {
