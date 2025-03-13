@@ -146,6 +146,10 @@ body {
   /* width: 60%; */
 }
 
+.navbar {
+  height: 100%;
+}
+
 .header-navbar-links {
   display: flex;
   align-items: center;
