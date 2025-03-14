@@ -1,0 +1,10 @@
+declare module "upscaler"
+declare module "@upscalerjs/esrgan-slim/2x"
+declare module "@upscalerjs/esrgan-slim/3x"
+declare module "@upscalerjs/esrgan-slim/4x"
+
+declare module "*.png"
+declare module "*.jpg"
+declare module "*.jpeg"
+declare module "*.svg"
+declare module "*.gif"

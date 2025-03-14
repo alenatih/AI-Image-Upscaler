@@ -1,4 +1,4 @@
-import React from "react"
+// import React from "react"
 import Oleg from "../assets/designer-photo.png"
 import Alena from "../assets/frontend-photo.png"
 import GitHubLogo from "../assets/github-logo.png"
