@@ -1,6 +1,15 @@
 import React from "react"
 
-function Tab({ index, active, onClick, imagePaths }) {
+function Tab({ 
+  index,
+  active,
+  onClick,
+  imagePaths
+}: {
+  index: number;
+  active: boolean;
+  onClick: (index: number) => void;
+  imagePaths: string[];}) {
   return (
     <div
       className={`tab ${active ? 'active' : ''}`}

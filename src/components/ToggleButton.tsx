@@ -9,26 +9,26 @@ function ToggleButton() {
   })
 
   useEffect(() => {
-    const root = document.getElementById("root")
-    const backgroundSvgHeader = document.querySelector(".background-svg-header")
-    const backgroundSvgMain = document.querySelector(".background-svg-main")
-    const headerContainer = document.querySelector(".header-container")
-    const mainContainer = document.querySelector(".main-container")
-    const authors = document.querySelector(".authors")
-    const designerContainer = document.querySelector(".designer-container")
-    const frontendDeveloperContainer = document.querySelector(".frontend-developer-container")
-    const backgroundSvgDesigner = document.querySelector(".background-svg-designer")
-    const backgroundSvgFrontend = document.querySelector(".background-svg-frontend")
+    const root = document.getElementById("root") as HTMLElement
+    const backgroundSvgHeader = document.querySelector(".background-svg-header") as HTMLElement
+    const backgroundSvgMain = document.querySelector(".background-svg-main") as HTMLElement
+    const headerContainer = document.querySelector(".header-container") as HTMLElement
+    const mainContainer = document.querySelector(".main-container") as HTMLElement
+    const authors = document.querySelector(".authors") as HTMLElement
+    const designerContainer = document.querySelector(".designer-container") as HTMLElement
+    const frontendDeveloperContainer = document.querySelector(".frontend-developer-container") as HTMLElement
+    const backgroundSvgDesigner = document.querySelector(".background-svg-designer")  as HTMLElement
+    const backgroundSvgFrontend = document.querySelector(".background-svg-frontend") as HTMLElement
 
     if (isLightMode) {
-      root.classList.add("light-mode")
-      root.classList.remove("dark-mode")
+      root?.classList.add("light-mode")
+      root?.classList.remove("dark-mode")
 
-      headerContainer.classList.add("light-mode")
-      headerContainer.classList.remove("dark-mode")
+      headerContainer?.classList.add("light-mode")
+      headerContainer?.classList.remove("dark-mode")
 
-      mainContainer.classList.add("light-mode")
-      mainContainer.classList.remove("dark-mode")
+      mainContainer?.classList.add("light-mode")
+      mainContainer?.classList.remove("dark-mode")
 
       backgroundSvgHeader.style.backgroundColor = "whitesmoke"
       backgroundSvgMain.style.backgroundColor = "whitesmoke"
@@ -42,14 +42,14 @@ function ToggleButton() {
       designerContainer.style.boxShadow = "0 0 250px rgba(116, 128, 164, 0.8)"
       frontendDeveloperContainer.style.boxShadow = "0 0 250px rgba(116, 128, 164, 0.8)"
     } else {
-      root.classList.add("dark-mode")
-      root.classList.remove("light-mode")
+      root?.classList.add("dark-mode")
+      root?.classList.remove("light-mode")
 
-      headerContainer.classList.add("dark-mode")
-      headerContainer.classList.remove("light-mode")
+      headerContainer?.classList.add("dark-mode")
+      headerContainer?.classList.remove("light-mode")
 
-      mainContainer.classList.add("dark-mode")
-      mainContainer.classList.remove("light-mode")
+      mainContainer?.classList.add("dark-mode")
+      mainContainer?.classList.remove("light-mode")
 
       backgroundSvgHeader.style.backgroundColor = "#242424"
       backgroundSvgMain.style.backgroundColor = "#242424"

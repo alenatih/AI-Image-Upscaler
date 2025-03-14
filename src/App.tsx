@@ -12,7 +12,6 @@ import x2 from "@upscalerjs/esrgan-slim/2x"
 import x3 from "@upscalerjs/esrgan-slim/3x"
 import x4 from "@upscalerjs/esrgan-slim/4x"
 
-// Define types for the application
 interface OriginalSize {
   width: number;
   height: number;
@@ -104,7 +103,7 @@ function App(): JSX.Element {
     if (src && !isUpscaleClicked) {
       warmupPromise = upscaler.warmup({ patchSize: 64, padding: 2 })
       warmupPromise.then(() => {
-        console.log("All warmed up!")
+        // console.log("All warmed up!")
       })
     }
 
@@ -120,7 +119,7 @@ function App(): JSX.Element {
     if (src && !isUpscaleClicked) {
       warmupPromise = localUpscaler.warmup({ patchSize: 64, padding: 2 })
       warmupPromise.then(() => {
-        console.log("All warmed up!")
+        // console.log("All warmed up!")
       })
     }
 
