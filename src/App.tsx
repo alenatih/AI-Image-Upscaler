@@ -21,7 +21,7 @@ const upscaler = new Upscaler({
   modelx2: x2,
   modelx3: x3,
   modelx4: x4,
-});
+})
 
 const localUpscaler = new Upscaler({
   modelx2: {
@@ -36,7 +36,7 @@ const localUpscaler = new Upscaler({
     scale: 4,
     path: "/esrgan-slim/models/x4/model.json",
   },
-});
+})
 
 function App(): JSX.Element {
   const [src, setSrc] = useState<string | null>(null)
@@ -103,7 +103,7 @@ function App(): JSX.Element {
     if (src && !isUpscaleClicked) {
       warmupPromise = upscaler.warmup({ patchSize: 64, padding: 2 })
       warmupPromise.then(() => {
-        // console.log("All warmed up!")
+        console.log("All warmed up!")
       })
     }
 
@@ -119,7 +119,7 @@ function App(): JSX.Element {
     if (src && !isUpscaleClicked) {
       warmupPromise = localUpscaler.warmup({ patchSize: 64, padding: 2 })
       warmupPromise.then(() => {
-        // console.log("All warmed up!")
+        console.log("All warmed up!")
       })
     }
 
@@ -169,8 +169,8 @@ function App(): JSX.Element {
           setOriginalSize({ width, height })
         } catch (error) {
           if (!isCurrent) return
-          console.error('Error upscaling image:', error)
-          alert('Error upscaling image:')
+          console.error("Error upscaling image:", error)
+          alert("Error upscaling image.")
 
           try {
             const upscaledSrc = await localUpscaler.upscale(img, {
@@ -187,8 +187,8 @@ function App(): JSX.Element {
             setOriginalSize({ width, height })
           } catch (localError) {
             if (!isCurrent) return
-            console.error('Error upscaling image with local model:', localError)
-            alert('Error upscaling image with local model:')
+            console.error("Error upscaling image with local model:", localError)
+            alert("Error upscaling image with local model")
           }
         } finally {
           if (isCurrent) {
@@ -242,10 +242,10 @@ function App(): JSX.Element {
     setDragging(true)
   }
 
-  const drag = (e: React.MouseEvent): void => {
+  const drag = (event: React.MouseEvent): void => {
     if (dragging && container.current) {
       const offsetWidth = container.current.offsetWidth
-      const x = e.clientX - container.current.getBoundingClientRect().left
+      const x = event.clientX - container.current.getBoundingClientRect().left
       setDragX(x / offsetWidth)
     }
   }
@@ -258,10 +258,10 @@ function App(): JSX.Element {
     setDragging(true)
   }
 
-  const touchDrag = (e: React.TouchEvent): void => {
+  const touchDrag = (event: React.TouchEvent): void => {
     if (dragging && container.current) {
       const offsetWidth = container.current.offsetWidth
-      const touch = e.touches[0]
+      const touch = event.touches[0]
       const x = touch.clientX - container.current.getBoundingClientRect().left
       setDragX(x / offsetWidth)
     }
@@ -333,8 +333,8 @@ function App(): JSX.Element {
     }
   }
 
-  const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const value = parseInt(e.target.value)
+  const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const value = parseInt(event.target.value)
     setScalingFactor(value)
 
     const sliderInput = document.querySelector(".slider-input") as HTMLElement
