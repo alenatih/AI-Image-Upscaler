@@ -1,7 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
 // import { Helmet } from "react-helmet"
-import App from "./App.jsx"
+import App from "./App"
 import "./index.css"
 
 const rootElement = document.getElementById("root")

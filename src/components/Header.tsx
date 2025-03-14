@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react"
-import ToggleButton from "./ToggleButton.jsx"
+import ToggleButton from "./ToggleButton.js"
 import Logo from "../assets/logo.png"
 
 function Header() {
@@ -9,7 +9,7 @@ function Header() {
     return window.innerWidth < 600 ? true : false
   })
 
-  const menuRef = useRef(null)
+  const menuRef = useRef<HTMLDivElement>(null)
 
   const checkScreenSize = () => {
     setIsMobile(() => {
@@ -35,7 +35,7 @@ function Header() {
   }
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
         if (
             menuRef.current &&
             event.target instanceof Node &&

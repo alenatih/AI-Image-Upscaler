@@ -1,6 +1,6 @@
-import React, { useState } from "react"
-import ImagePair from './ImagePair.jsx'
-import Tab from './Tab.jsx'
+import { useState } from "react"
+import ImagePair from './ImagePair.js'
+import Tab from './Tab.js'
 import "./DemoContainer.css"
 import DemoImageCatBefore from "../assets/demo-image-cat-before.png"
 import DemoreImageCatUpscaled from "../assets/demo-image-cat-upscaled.png"
@@ -14,7 +14,7 @@ import ElfGirlUpscaled from "../assets/elf-girl-upscaled.png"
 function DemoContainer() {
   const [activeTab, setActiveTab] = useState(0)
 
-  const handleTabClick = (tabIndex) => {
+  const handleTabClick = (tabIndex: number) => {
     setActiveTab(tabIndex)
   }
 
