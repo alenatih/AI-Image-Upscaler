@@ -30,7 +30,7 @@ The limitations are related to the work of models in the browser (to learn more,
 - Vite
 - HTML
 - CSS
-- JavaScript
+- TypeScript
 - UpscalerJS
 - Font Awesome CDN
 
