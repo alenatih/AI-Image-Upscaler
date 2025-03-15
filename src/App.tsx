@@ -98,8 +98,12 @@ function App(): JSX.Element {
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
+  interface CancellablePromise<T> extends Promise<T> {
+    cancel?: () => void
+  }
+
   useEffect(() => {
-    let warmupPromise: any
+    let warmupPromise: CancellablePromise<void>
     if (src && !isUpscaleClicked) {
       warmupPromise = upscaler.warmup({ patchSize: 64, padding: 2 })
       warmupPromise.then(() => {
@@ -115,7 +119,7 @@ function App(): JSX.Element {
   }, [src, isUpscaleClicked])
 
   useEffect(() => {
-    let warmupPromise: any
+    let warmupPromise: CancellablePromise<void>
     if (src && !isUpscaleClicked) {
       warmupPromise = localUpscaler.warmup({ patchSize: 64, padding: 2 })
       warmupPromise.then(() => {
