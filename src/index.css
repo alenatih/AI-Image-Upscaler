@@ -229,6 +229,10 @@ body {
   z-index: 5;
 }
 
+.header {
+  z-index: 9;
+}
+
 .background-svg-header,
 .background-svg-main {
   background-color: var(--background-color-light);

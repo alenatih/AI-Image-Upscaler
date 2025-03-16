@@ -74,4 +74,3 @@ function ImagePair({ active, imagePaths }: { active: boolean; imagePaths: string
 }
 
 export default ImagePair
-
