@@ -192,7 +192,7 @@ body {
   height: 100%;
   width: 250px;
   gap: 20px;
-  padding: 1.75rem 1.25rem 3rem 1.75rem;
+  padding: 1.5rem 1.25rem 3rem 1.5rem;
   transition: transform 0.3s ease-in-out;
   border-radius: 0 0.5rem 0.5rem 0;
   z-index: 1000;
@@ -228,13 +228,15 @@ body {
   text-align: start;
   text-decoration: none;
   width: 100%;
-  padding: 0.75rem 0;
+  padding: 0.75rem 0.5rem;
   transition: background-color 0.2s ease;
+  border-radius: 0.5rem;
 }
 
 .mobile-menu a:hover {
   background-color: rgba(255, 255, 255, 0.1);
   /* padding-left: 0.5rem; */
+  border-radius: 0.5rem;
 }
 
 /* Overlay for closing menu when clicking outside */
