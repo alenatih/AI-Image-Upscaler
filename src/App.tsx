@@ -48,7 +48,7 @@ function App(): JSX.Element {
   const [dragX, setDragX] = useState<number>(0.5)
   const [dragging, setDragging] = useState<boolean>(false)
   const container = useRef<HTMLDivElement>(null)
-  const [downloadFormat, setDownloadFormat] = useState<string>("jpg")
+  // const [downloadFormat, setDownloadFormat] = useState<string | null>("")
   const [scalingFactor, setScalingFactor] = useState<number>(2)
   const [fileName, setFileName] = useState<string>("")
   const [originalFormat, setOriginalFormat] = useState<string>("jpg")
@@ -279,62 +279,67 @@ function App(): JSX.Element {
     setIsDropdownOpen(!isDropdownOpen)
   }
 
-  let imageFormat = ""
-
-  const updateDownloadFormat = (e: React.MouseEvent<HTMLButtonElement>): void => {
-    const target = e.target as HTMLButtonElement
+  const updateDownloadFormat = (
+    event: React.MouseEvent<HTMLButtonElement> | React.TouchEvent<HTMLButtonElement>
+  ): void => {
+    const target = event.target as HTMLButtonElement
     const format = target.dataset.format || ""
-    imageFormat = format
-    setDownloadFormat(imageFormat)
-    downloadCallback()
+    
+    if (!format) return
+    
+    downloadImage(format)
   }
 
-  const downloadCallback = (): void => {
-    downloadImage()
-  }
-
-  const downloadImage = (): void => {
+  const downloadImage = (format?: string): void => {
     if (!upscaledImageSrc) return
+    
+    const imageFormat = format || originalFormat
     
     const link = document.createElement("a")
     const image = new Image()
     image.src = upscaledImageSrc
+    
     image.onload = () => {
       const canvas = document.createElement("canvas")
       canvas.height = image.height
       canvas.width = image.width
       const ctx = canvas.getContext("2d")
+      
       if (ctx) {
         ctx.drawImage(image, 0, 0)
-        link.href = canvas.toDataURL(`image/${downloadFormat}`)
-        link.download = `${fileName}-upscaled.${downloadFormat}`
+        link.href = canvas.toDataURL(`image/${imageFormat}`)
+        link.download = `${fileName}-upscaled.${imageFormat}`
         document.body.appendChild(link)
         link.click()
         document.body.removeChild(link)
       }
     }
   }
+
+  // const downloadImageOriginalFormat = (): void => {
+  //   if (!upscaledImageSrc) return
+    
+  //   const link = document.createElement("a")
+  //   const image = new Image()
+  //   image.src = upscaledImageSrc
+  //   image.onload = () => {
+  //     const canvas = document.createElement("canvas")
+  //     canvas.height = image.height
+  //     canvas.width = image.width
+  //     const ctx = canvas.getContext("2d")
+  //     if (ctx) {
+  //       ctx.drawImage(image, 0, 0)
+  //       link.href = canvas.toDataURL(`image/${originalFormat}`)
+  //       link.download = `${fileName}-upscaled.${originalFormat}`
+  //       document.body.appendChild(link)
+  //       link.click()
+  //       document.body.removeChild(link)
+  //     }
+  //   }
+  // }
 
   const downloadImageOriginalFormat = (): void => {
-    if (!upscaledImageSrc) return
-    
-    const link = document.createElement("a")
-    const image = new Image()
-    image.src = upscaledImageSrc
-    image.onload = () => {
-      const canvas = document.createElement("canvas")
-      canvas.height = image.height
-      canvas.width = image.width
-      const ctx = canvas.getContext("2d")
-      if (ctx) {
-        ctx.drawImage(image, 0, 0)
-        link.href = canvas.toDataURL(`image/${originalFormat}`)
-        link.download = `${fileName}-upscaled.${originalFormat}`
-        document.body.appendChild(link)
-        link.click()
-        document.body.removeChild(link)
-      }
-    }
+    downloadImage()
   }
 
   const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -611,11 +616,19 @@ function App(): JSX.Element {
 
                       {isDropdownOpen && (
                         <div className="download-formats-container">
-                          <button className="download-button-jpg" data-format="jpg" onClick={updateDownloadFormat}>
+                          <button
+                            className="download-button-jpg"
+                            data-format="jpg"
+                            onClick={updateDownloadFormat}
+                          >
                             Download .jpg
                           </button>
 
-                          <button className="download-button-png" data-format="png" onClick={updateDownloadFormat}>
+                          <button
+                            className="download-button-png"
+                            data-format="png"
+                            onClick={updateDownloadFormat}
+                          >
                             Download .png
                           </button>
                         </div>
