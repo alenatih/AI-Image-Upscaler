@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useRef } from "react"
-import ToggleButton from "./ToggleButton.js"
+import { useState, useEffect, useRef } from "react"
+import ToggleButton from "./ToggleButton"
 import Logo from "../assets/logo.png"
 
 function Header() {
-    
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(() => {
     return window.innerWidth < 600 ? true : false
@@ -68,20 +67,30 @@ function Header() {
 
       <div className="navbar">
         {isMobile ? (
-          <div
-            className="header-mobile-menu">
+          <div className="header-mobile-menu">
             <i
               className="fa-solid fa-bars burger-icon"
               onClick={toggleDropdown}>
             </i>
+            <nav
+              className={`mobile-menu ${isDropdownOpen ? "open" : "closed"}`}
+              ref={menuRef}>
+              <div className="menu-header">
+                <h3>Menu</h3>
+                <i 
+                  className="fa-solid fa-times close-icon" 
+                  onClick={() => setIsDropdownOpen(false)}>
+                </i>
+              </div>
+              <a href="#main">Upscaler</a>
+              <a href="#how-it-works">How it works</a>
+              <a href="#authors">Authors</a>
+            </nav>
             {isDropdownOpen && (
-                <nav
-                  className={`mobile-menu-opened ${isDropdownOpen ? "slide-in" : ""}`}
-                  ref={menuRef}>
-                  <a href="#main">Upscaler</a>
-                  <a href="#how-it-works">How it works</a>
-                  <a href="#authors">Authors</a>
-                </nav>
+              <div 
+                className="mobile-menu-overlay" 
+                onClick={() => setIsDropdownOpen(false)}
+              />
             )}
           </div>
         ) : (
