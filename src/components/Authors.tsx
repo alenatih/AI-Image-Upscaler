@@ -19,10 +19,10 @@ function Authors() {
                   <div className="author-data-container">
 
                     <svg className="background-svg-designer" width="100%" height="100%">
-                      <pattern id="pattern-circles" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse">
-                        <circle id="pattern-circle" cx="10" cy="10" r="1.6257413380501518" fill="#D1D5E1"></circle>
+                      <pattern id="pattern-designer-circles" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse">
+                        <circle id="pattern-designer-circle" cx="10" cy="10" r="1.6257413380501518" fill="#AEAFB8"></circle>
                       </pattern>
-                      <rect  id="rect" x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)"></rect>
+                      <rect  id="rect" x="0" y="0" width="100%" height="100%" fill="url(#pattern-designer-circles)"></rect>
                     </svg>
 
                     <img className="author-image" src={Oleg}></img>
@@ -52,10 +52,10 @@ function Authors() {
                 <div className="author-data-container">
 
                   <svg className="background-svg-frontend" width="100%" height="100%">
-                    <pattern id="pattern-circles" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse">
-                      <circle id="pattern-circle" cx="10" cy="10" r="1.6257413380501518" fill="#D1D5E1"></circle>
+                    <pattern id="pattern-frontend-circles" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse">
+                      <circle id="pattern--forntend-circle" cx="10" cy="10" r="1.6257413380501518" fill="#AEAFB8"></circle>
                     </pattern>
-                    <rect  id="rect" x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)"></rect>
+                    <rect  id="rect" x="0" y="0" width="100%" height="100%" fill="url(#pattern-frontend-circles)"></rect>
                   </svg>
 
                   <img className="author-image" src={Alena}></img>

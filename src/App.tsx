@@ -316,28 +316,6 @@ function App(): JSX.Element {
     }
   }
 
-  // const downloadImageOriginalFormat = (): void => {
-  //   if (!upscaledImageSrc) return
-    
-  //   const link = document.createElement("a")
-  //   const image = new Image()
-  //   image.src = upscaledImageSrc
-  //   image.onload = () => {
-  //     const canvas = document.createElement("canvas")
-  //     canvas.height = image.height
-  //     canvas.width = image.width
-  //     const ctx = canvas.getContext("2d")
-  //     if (ctx) {
-  //       ctx.drawImage(image, 0, 0)
-  //       link.href = canvas.toDataURL(`image/${originalFormat}`)
-  //       link.download = `${fileName}-upscaled.${originalFormat}`
-  //       document.body.appendChild(link)
-  //       link.click()
-  //       document.body.removeChild(link)
-  //     }
-  //   }
-  // }
-
   const downloadImageOriginalFormat = (): void => {
     downloadImage()
   }
@@ -383,7 +361,7 @@ function App(): JSX.Element {
       <header className="header">
         <svg className="background-svg-header" width="100%" height="100%">
           <pattern id="pattern-circles" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse">
-            <circle id="pattern-circle" cx="10" cy="10" r="1.6257413380501518" fill="#D1D5E1"></circle>
+            <circle id="pattern-circle" cx="10" cy="10" r="1.6257413380501518" fill="#AEAFB8"></circle>
           </pattern>
           <rect id="rect" x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)"></rect>
         </svg>
@@ -395,10 +373,10 @@ function App(): JSX.Element {
 
       <main className="main" id="main">
         <svg className="background-svg-main" width="100%" height="100%">
-          <pattern id="pattern-circles" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse">
-            <circle id="pattern-circle" cx="10" cy="10" r="1.6257413380501518" fill="#D1D5E1"></circle>
+          <pattern id="pattern-main-circles" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse">
+            <circle id="pattern-main-circle" cx="10" cy="10" r="1.6257413380501518" fill="#AEAFB8"></circle>
           </pattern>
-          <rect id="rect" x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)"></rect>
+          <rect id="rect" x="0" y="0" width="100%" height="100%" fill="url(#pattern-main-circles)"></rect>
         </svg>
 
         <div className="main-container light-mode">
