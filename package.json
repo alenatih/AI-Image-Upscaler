@@ -22,8 +22,8 @@
     "upscaler": "1.0.0-beta.19"
   },
   "devDependencies": {
-    "@types/node": "^22.13.10",
-    "@types/react": "^18.3.18",
+    "@types/node": "^22.13.14",
+    "@types/react": "^18.3.20",
     "@types/react-dom": "^18.3.5",
     "@types/react-dropzone": "^5.1.0",
     "@vitejs/plugin-react": "^4.3.4",
@@ -32,6 +32,6 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.19",
     "typescript": "^5.8.2",
-    "vite": "^5.4.14"
+    "vite": "^5.4.16"
   }
 }
