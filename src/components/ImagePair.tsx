@@ -58,13 +58,23 @@ function ImagePair({ active, imagePaths }: { active: boolean; imagePaths: string
         {/* <div className="demo-dragger-circle"></div> */}
       </div>
       <div className="demo-image-container">
-        <img
+        {/* <img
           src={imagePaths[0]}
           alt="Image 1"
           className={`demo-image-one ${dragX < 0.5 ? "active" : ""}`}
         />
         <img
           src={imagePaths[1]}
+          alt="Image 2"
+          className={`demo-image-two ${dragX >= 0.5 ? "active" : ""}`}
+        /> */}
+        <img
+          src={imagePaths[1]}
+          alt="Image 1"
+          className={`demo-image-one ${dragX < 0.5 ? "active" : ""}`}
+        />
+        <img
+          src={imagePaths[0]}
           alt="Image 2"
           className={`demo-image-two ${dragX >= 0.5 ? "active" : ""}`}
         />
