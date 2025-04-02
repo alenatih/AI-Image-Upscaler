@@ -456,7 +456,7 @@ function App(): JSX.Element {
           <rect id="rect" x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)"></rect>
         </svg>
 
-        <div className="header-container light-mode">
+        <div className="header-container">
           <Header />
         </div>
       </header>
@@ -469,7 +469,7 @@ function App(): JSX.Element {
           <rect id="rect" x="0" y="0" width="100%" height="100%" fill="url(#pattern-main-circles)"></rect>
         </svg>
 
-        <div className="main-container light-mode">
+        <div className="main-container">
           <div className="main-left-and-right-container">
             <div className="main-left">
               <h2 className="title">AI tool</h2>
