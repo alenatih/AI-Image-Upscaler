@@ -141,18 +141,18 @@ function App(): JSX.Element {
     }
   }, [src, isUpscaleClicked])
 
-  // Preprocess the image before upscaling
+  // Preprocess the image
   const preprocessImage = (image: HTMLImageElement): HTMLCanvasElement => {
-    const canvas = document.createElement('canvas')
+    const canvas = document.createElement("canvas")
     canvas.width = image.width
     canvas.height = image.height
-    const ctx = canvas.getContext('2d')
+    const ctx = canvas.getContext("2d")
     
     if (ctx) {
-      // Apply sharpening before upscaling
-      ctx.filter = 'contrast(1.1) saturate(1.05)'
+      // Sharpening before upscaling
+      ctx.filter = "contrast(1.1) saturate(1.05)"
       ctx.drawImage(image, 0, 0, image.width, image.height)
-      ctx.filter = 'none'
+      ctx.filter = "none"
     }
     
     return canvas
@@ -184,36 +184,30 @@ function App(): JSX.Element {
           return
         }
 
-        // Store original dimensions
         const width = img.width
         const height = img.height
         setOriginalSize({ width, height })
         
         try {
-          // Preprocess the image
           const preprocessedCanvas = preprocessImage(img)
-          
-          // Start upscaling with enhanced configuration
+
           setIsLoaderVisible(true)
           setIsProgressBarVisible(true)
           
-          // Use the appropriate model based on scaling factor
           const modelToUse = scalingFactor === 2 ? "x2" : 
                             scalingFactor === 3 ? "x3" : "x4"
           
-          // Upscale with improved settings
           const upscaledSrc = await upscaler.upscale(preprocessedCanvas, {
             ...upscalerConfig,
             model: modelToUse,
             output: {
-              quality: 1.0, // Maximum quality
-              format: "image/png" // Use lossless format for processing
+              quality: 1.0,
+              format: "image/png"
             }
           })
           
           if (!isCurrent) return
-          
-          // Apply post-processing to enhance the upscaled image
+
           const enhancedImageSrc = await enhanceUpscaledImage(upscaledSrc)
           setUpscaledImageSrc(enhancedImageSrc)
           setIsLoaderVisible(false)
@@ -222,12 +216,11 @@ function App(): JSX.Element {
           console.error("Error upscaling image:", error)
           
           try {
-            // Fallback to local model with improved settings
+            // Fallback to local model
             const upscaledSrc = await localUpscaler.upscale(img, upscalerConfig)
             if (!isCurrent) return
             console.log("Local model was used")
             
-            // Apply same post-processing to local model output
             const enhancedImageSrc = await enhanceUpscaledImage(upscaledSrc)
             setUpscaledImageSrc(enhancedImageSrc)
             setIsLoaderVisible(false)
@@ -257,40 +250,36 @@ function App(): JSX.Element {
       img.src = imageSrc
       
       img.onload = () => {
-        const canvas = document.createElement('canvas')
-        canvas.width = img.width
+        const canvas = document.createElement("canvas")
         canvas.height = img.height
-        const ctx = canvas.getContext('2d')
+        canvas.width = img.width
+        const ctx = canvas.getContext("2d")
         
         if (ctx) {
-          // Apply slight sharpening and color enhancement
-          ctx.filter = 'contrast(1.05) saturate(1.02) brightness(1.01)'
+          // Slight sharpening and color enhancement
+          ctx.filter = "contrast(1.05) saturate(1.02) brightness(1.01)"
           ctx.drawImage(img, 0, 0)
-          ctx.filter = 'none'
+          ctx.filter = "none"
           
-          // Add minimal unsharp masking for edge enhancement
-          // This is a simplified version - a full implementation would involve
-          // more complex convolution operations
-          const sharpened = ctx.getImageData(0, 0, canvas.width, canvas.height)
-          const enhancedDataUrl = canvas.toDataURL('image/png', 1.0)
+          const sharpened = ctx.getImageData(0, 0, canvas.height, canvas.width)
+          const enhancedDataUrl = canvas.toDataURL("image/png", 1.0)
           resolve(enhancedDataUrl)
         } else {
-          resolve(imageSrc) // Fallback to original if context not available
+          resolve(imageSrc)
         }
       }
     })
   }
 
   const improvedScaledImageStyles = {
-    // imageRendering: 'auto', // Let browser use best algorithm
-    willChange: 'transform', // Optimize for animation
-    // backfaceVisibility: 'hidden' // Improve performance
+    // imageRendering: "auto", // Let browser use best algorithm
+    willChange: "transform", // Optimize for animation
+    // backfaceVisibility: "hidden" // Improve performance
   }
 
   // Dynamic choice of model based on scaling factor
   useEffect(() => {
     if (upscaler && scalingFactor) {
-      // Ensure we're using the right model for the chosen scaling factor
       const modelChoice = scalingFactor === 2 ? 'modelx2' : 
                           scalingFactor === 3 ? 'modelx3' : 'modelx4'
       console.log(`Using ${modelChoice} for ${scalingFactor}x upscaling`)
@@ -564,8 +553,8 @@ function App(): JSX.Element {
                           alt="Original"
                           width={originalSize ? originalSize.width * scale : undefined}
                           style={{
-                            imageRendering: interpolation === 'none' ? 'pixelated' : 'auto',
-                            transform: 'translateZ(0)', // Force GPU acceleration
+                            imageRendering: interpolation === "none" ? "pixelated" : "auto",
+                            transform: "translateZ(0)", // Force GPU acceleration
                           }}
                         />
                       </div>
