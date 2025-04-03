@@ -370,24 +370,29 @@ function App(): JSX.Element {
   }
 
   const downloadImage = (format?: string): void => {
-    if (!upscaledImageSrc) return
+    if (!upscaledImageSrc  || !originalSize) return
     
     const imageFormat = format || originalFormat
+    const scaledHeight = originalSize.height * scalingFactor
+    const scaledWidth = originalSize.width * scalingFactor
     
     const link = document.createElement("a")
     const image = new Image()
+    image.crossOrigin = "anonymous"
     image.src = upscaledImageSrc
     
     image.onload = () => {
       const canvas = document.createElement("canvas")
-      canvas.height = image.height
-      canvas.width = image.width
+      canvas.height = scaledHeight
+      canvas.width = scaledWidth
       const ctx = canvas.getContext("2d")
       
       if (ctx) {
-        ctx.drawImage(image, 0, 0)
-        link.href = canvas.toDataURL(`image/${imageFormat}`)
-        link.download = `${fileName}-upscaled.${imageFormat}`
+        ctx.drawImage(image, 0, 0, scaledWidth, scaledHeight)
+
+        const quality = imageFormat === "jpg" ? 0.95 : 1.0
+        link.href = canvas.toDataURL(`image/${imageFormat}`, quality)
+        link.download = `${fileName}-upscaled-${scalingFactor}x.${imageFormat}`
         document.body.appendChild(link)
         link.click()
         document.body.removeChild(link)
