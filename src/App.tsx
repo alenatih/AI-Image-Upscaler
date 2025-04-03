@@ -112,7 +112,7 @@ function App(): JSX.Element {
   useEffect(() => {
     let warmupPromise: CancellablePromise<void>
     if (src && !isUpscaleClicked) {
-      warmupPromise = upscaler.warmup({ patchSize: 64, padding: 2 })
+      warmupPromise = upscaler.warmup({ patchSize: 128, padding: 4 })
       warmupPromise.then(() => {
         console.log("All warmed up!")
       })
@@ -128,7 +128,7 @@ function App(): JSX.Element {
   useEffect(() => {
     let warmupPromise: CancellablePromise<void>
     if (src && !isUpscaleClicked) {
-      warmupPromise = localUpscaler.warmup({ patchSize: 64, padding: 2 })
+      warmupPromise = localUpscaler.warmup({ patchSize: 128, padding: 4 })
       warmupPromise.then(() => {
         console.log("All warmed up!")
       })
@@ -280,9 +280,9 @@ function App(): JSX.Element {
   // Dynamic choice of model based on scaling factor
   useEffect(() => {
     if (upscaler && scalingFactor) {
-      const modelChoice = scalingFactor === 2 ? 'modelx2' : 
-                          scalingFactor === 3 ? 'modelx3' : 'modelx4'
-      console.log(`Using ${modelChoice} for ${scalingFactor}x upscaling`)
+      const modelChoice = scalingFactor === 2 ? "modelx2" : 
+                          scalingFactor === 3 ? "modelx3" : "modelx4"
+      // console.log(`Using ${modelChoice} for ${scalingFactor}x upscaling`)
     }
   }, [scalingFactor])
 
