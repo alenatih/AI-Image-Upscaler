@@ -64,9 +64,6 @@ function App(): JSX.Element {
   const [isProgressBarVisible, setIsProgressBarVisible] = useState<boolean>(false)
   const [selectedForDeletion, setSelectedForDeletion] = useState<boolean>(false)
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false)
-  const [isModelWarming, setIsModelWarming] = useState<boolean>(false)
-  const [isModelReady, setIsModelReady] = useState<boolean>(false)
-  const [warmupProgress, setWarmupProgress] = useState<number>(0)
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
     const file = acceptedFiles[0]
@@ -115,23 +112,14 @@ function App(): JSX.Element {
   useEffect(() => {
     let warmupPromise: CancellablePromise<void>
     if (src && !isUpscaleClicked) {
-      setIsModelWarming(true)
-      setIsModelReady(false)
-      setWarmupProgress(0)
 
       warmupPromise = upscaler.warmup({ 
         patchSize: 128, 
         padding: 4,
-        progress: (progress: number) => {
-          setWarmupProgress(progress * 50) // Scale to 0-50% for first model
-        }
       })
 
       warmupPromise.then(() => {
-        setWarmupProgress(50) // First model is ready (50% complete)
-        // if (isModelWarming) {
-        //   console.log("Primary model ready")
-        // }
+        console.log("All models are ready for upscaling!")
       })
     }
 
@@ -145,34 +133,14 @@ function App(): JSX.Element {
   useEffect(() => {
     let warmupPromise: CancellablePromise<void>
     if (src && !isUpscaleClicked) {
-      if (!isModelWarming) {
-        setIsModelWarming(true)
-        setWarmupProgress(50) // Start at 50% as first model should be done
-      }
 
       warmupPromise = localUpscaler.warmup({ 
         patchSize: 128, 
         padding: 4,
-        // progress: (progress: number) => {
-        //   // Scale progress from 50-100%
-        //   setWarmupProgress(50 + (progress * 50))
-        // }
       })
 
       warmupPromise.then(() => {
-        setWarmupProgress(100)
-        setIsModelWarming(false)
-        setIsModelReady(true)
-        
-        // console.log("All models ready for upscaling!")
-        
-        const upscaleButton = document.querySelector(".upscale-button") as HTMLElement
-        if (upscaleButton) {
-          upscaleButton.classList.add("ready-to-upscale")
-          setTimeout(() => {
-            upscaleButton.classList.remove("ready-to-upscale")
-          }, 1500)
-        }
+        console.log("All models are ready for upscaling!")
       })
     }
 
@@ -181,7 +149,7 @@ function App(): JSX.Element {
         warmupPromise.cancel()
       }
     }
-  }, [src, isUpscaleClicked, isModelWarming])
+  }, [src, isUpscaleClicked])
 
   // Preprocess the image
   const preprocessImage = (image: HTMLImageElement): HTMLCanvasElement => {
@@ -702,22 +670,6 @@ function App(): JSX.Element {
                   </div>
                 )}
               </div>
-
-              {src && !isUpscaleClicked && (
-                <div className="model-status">
-                  {isModelWarming && (
-                    <div className="warmup-progress">
-                      <div className="warmup-progress-bar" style={{ width: `${warmupProgress}%` }}></div>
-                      <span className="warmup-text">Preparing AI model: {Math.round(warmupProgress)}%</span>
-                    </div>
-                  )}
-                  {isModelReady && (
-                    <div className="model-ready">
-                      <i className="fa-solid fa-check"></i> AI model ready
-                    </div>
-                  )}
-                </div>
-              )}
 
               {displayUpscaledImageSrc && (
                 <>

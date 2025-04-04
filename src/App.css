@@ -724,54 +724,6 @@ input[type="range"]::-webkit-slider-thumb:active {
   flex: 1;
 }
 
-.model-status {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #666;
-  font-size: 1rem;
-  margin: 2rem 1rem 1rem;
-}
-
-.warmup-progress {
-  background-color: #E0E3EB;
-  height: 0.25rem;
-  width: 100%;
-  margin-bottom: 0.5rem;
-  border-radius: 0.5rem;
-  overflow: hidden;
-}
-
-.warmup-progress-bar {
-  background-color: #FF668A;
-  height: 100%;
-  border-radius: 0.5rem;
-  transition: width 0.3s ease;
-}
-
-.warmup-text {
-  color: #888;
-  font-size: 0.75rem;
-}
-
-.model-ready {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #4CAF50;
-}
-
-.ready-to-upscale {
-  animation: pulse 1s ease;
-}
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(255, 102, 138, 0.4); }
-  70% { box-shadow: 0 0 0 8px rgba(255, 102, 138, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(255, 102, 138, 0); }
-}
-
 /* Buttons */
 
 button {
