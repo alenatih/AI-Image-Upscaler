@@ -17,21 +17,21 @@
     "jszip": "^3.10.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-dropzone": "^14.3.8",
+    "react-dropzone": "^14.4.1",
     "react-helmet": "^6.1.0",
     "upscaler": "1.0.0-beta.19"
   },
   "devDependencies": {
-    "@types/node": "^22.14.0",
-    "@types/react": "^18.3.20",
-    "@types/react-dom": "^18.3.6",
+    "@types/node": "^25.3.3",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
     "@types/react-dropzone": "^5.1.0",
-    "@vitejs/plugin-react": "^4.3.4",
+    "@vitejs/plugin-react": "^5.1.4",
     "eslint": "^8.57.1",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^4.6.2",
-    "eslint-plugin-react-refresh": "^0.4.19",
-    "typescript": "^5.8.2",
-    "vite": "^5.4.17"
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
   }
 }
