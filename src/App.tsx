@@ -45,7 +45,7 @@ const upscalerConfig = {
   skipProcessing: false
 }
 
-function App(): JSX.Element {
+function App(): React.JSX.Element {
   const [src, setSrc] = useState<string | null>(null)
   const [originalSize, setOriginalSize] = useState<OriginalSize | null>(null)
   const [scale, setScale] = useState<number>(1)
